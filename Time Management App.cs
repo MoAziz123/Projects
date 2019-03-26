@@ -196,9 +196,22 @@ namespace TimeManagementApp
             */
 
             //to writefile
-            System.IO.File.WriteAllLines(@"C:\Users\User\Desktop\Networks1\TimeManageFile.txt", boxlist);
-
-            System.IO.File.WriteAllLines(@"C:\Users\User\Desktop\Networks1\TimeManageFile2.txt", boxlist2);
+            if(File.Exists(@"C:\Temp\TimeManageFile1.txt") == false && File.Exists(@"C:\Temp\TimeManageFile2.txt") == false);{
+                System.IO.File.Create(@"C:\Temp\TimeManageFile1.txt");
+                System.IO.File.Create(@"C:\Temp\TimeManageFile2.txt");
+                System.IO.File.WriteAllLines(@"C:\Temp\TimeManageFile1.txt", boxlist);
+                System.IO.File.WriteAllLines(@"C:\Temp\TimeManageFile2.txt", boxlist2);
+                }
+            else{
+                System.IO.File.WriteAllLines(@"C:\Temp\TimeManageFile1.txt", boxlist);
+                System.IO.File.WriteAllLines(@"C:\Temp\TimeManageFile2.txt", boxlist2);
+            }
+            
+            
+            
+            
+            
+            
         }
         
 
