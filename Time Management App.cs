@@ -1,4 +1,5 @@
-﻿using System;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace TimeManagementApp
 {//app building in c# - declare constructor, then do whatever you want
     public class Form3 : Form
     {
+        string fullpath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         public DateTime now;
         public List<string> boxlist;
         public Button currentbutton;
@@ -34,25 +36,24 @@ namespace TimeManagementApp
           /*datetimeholder = new TextBox();
           datetimeholder.Size = new Size(200, 200);
           datetimeholder.Location = new Point(40, 40);
-
           DateTime now = new DateTime();
           now = DateTime.Now;
           datetimeholder.Text = now.ToString();
           */
 
-            
+            //the date time picker for alarm
             datey = new DateTimePicker();
             datey.Format = DateTimePickerFormat.Time;
             datey.Location = new Point(20, 40);
             datey.Size = new Size(48, 100);
-
+            //the label for the alarm
             openin2 = new Label();
             openin2.Text = "Alarm System";
             openin2.Location = new Point(120, 20);
 
 
 
-
+            //the button to save time
             Button currentbutton = new Button();
             currentbutton.Location = new Point(20, 60);
             currentbutton.Size = new Size(40, 40);
@@ -62,12 +63,12 @@ namespace TimeManagementApp
 
             boxlist = new List<string>();
             boxlist2 = new List<string>();
-
+            //the listbox to store time
             listboxfortime = new ListBox();
             listboxfortime.Location = new Point(70, 80);
             listboxfortime.Size = new Size(60, 80);
             listboxfortime.DoubleClick += new EventHandler(doublist);
-
+            //the textbox to allow you to enter a message
             message = new TextBox();
             message.Location = new Point(80, 40);
             message.Size = new Size(100, 100);
@@ -86,9 +87,9 @@ namespace TimeManagementApp
             timer101.Elapsed += OnTimedEvent; //from program intialisation, till it hits time interval
             timer101.Interval = 10000; //only execute once
             timer101.AutoReset = true;
-
+            
             lstboxmsgdate = new ListBox();
-            lstboxmsgdate.Location = new Point(130,80);
+            lstboxmsgdate.Location = new Point(130, 80);
             lstboxmsgdate.Size = new Size(150, 80);
             this.Controls.Add(lstboxmsgdate);
 
@@ -103,16 +104,16 @@ namespace TimeManagementApp
             label2.Size = new Size(90, 40);
             label2.Text = "Current Alarm";
             this.Controls.Add(label2);
-
+            //button to read into the listbox
             readbut = new Button();
             readbut.Location = new Point(20, 100);
             readbut.Size = new Size(40, 40);
             readbut.Click += new EventHandler(readmethod);
             readbut.Text = "Load";
             this.Controls.Add(readbut);
-
+            //button to write into the listbox
             writebut = new Button();
-            writebut.Location = new Point(20, 140);
+            writebut.Location = new Point(20, 140); //refers to location
             writebut.Size = new Size(40, 40);
             writebut.Click += new EventHandler(writemethod);
             writebut.Text = "Save";
@@ -130,7 +131,7 @@ namespace TimeManagementApp
 
         }
         public void button_Click(object sender, EventArgs e)
-        {
+        {//on button click, add the time to the listbox and to a list 
             timer101.Enabled = true;
             listboxfortime.Items.Add(datey.Value.ToShortTimeString());
             boxlist.Add(datey.Value.ToShortTimeString());
@@ -146,14 +147,15 @@ namespace TimeManagementApp
             now = DateTime.Now;
             now = now.AddSeconds(-now.Second); //to zero the second
             datey.Value = datey.Value.AddSeconds(-datey.Value.Second);
-           
-            
 
-            if (now >= datey.Value) { //since it's always going to be either greater or equal, this will execute
-                
 
-                MessageBox.Show("Alarm! " + datey.Value.ToShortTimeString() +" - "+ message.Text);
-                
+
+            if (now >= datey.Value)
+            { //since it's always going to be either greater or equal, this will execute
+
+
+                MessageBox.Show("Alarm! " + datey.Value.ToShortTimeString() + " - " + message.Text);
+
 
 
 
@@ -165,10 +167,10 @@ namespace TimeManagementApp
         public void doublist(object sender, EventArgs e)
         {
             datey.Value = Convert.ToDateTime(listboxfortime.SelectedItem);
-            
+
             if (listboxfortime.SelectedIndex >= 0)
             {
-                MessageBox.Show("Alarm " + listboxfortime.SelectedIndex.ToString() +" - "+  listboxfortime.GetItemText(listboxfortime.SelectedItem) + "set");
+                MessageBox.Show("Alarm " + listboxfortime.SelectedIndex.ToString() + " - " + listboxfortime.GetItemText(listboxfortime.SelectedItem) + "set");
 
             }
 
@@ -183,45 +185,38 @@ namespace TimeManagementApp
 
         public void writemethod(object sender, EventArgs e)
         {
-            /*string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            using (sw = new StreamWriter(Path.Combine(path, "TimeManageFile.txt"))) ; //writes files to a txtfile
-            {//using allows for it to be self closing
-                foreach (String text in boxlist)
-                {
-                    sw.WriteLine(text + "\n");
-                    
-
-                }
-            }
-            */
 
             //to writefile
-            if(File.Exists(@"C:\Temp\TimeManageFile1.txt") == false && File.Exists(@"C:\Temp\TimeManageFile2.txt") == false);{
-                System.IO.File.Create(@"C:\Temp\TimeManageFile1.txt");
-                System.IO.File.Create(@"C:\Temp\TimeManageFile2.txt");
-                System.IO.File.WriteAllLines(@"C:\Temp\TimeManageFile1.txt", boxlist);
-                System.IO.File.WriteAllLines(@"C:\Temp\TimeManageFile2.txt", boxlist2);
-                }
-            else{
-                System.IO.File.WriteAllLines(@"C:\Temp\TimeManageFile1.txt", boxlist);
-                System.IO.File.WriteAllLines(@"C:\Temp\TimeManageFile2.txt", boxlist2);
+            
+            //if file exists, then create it at the path, and write everything in current listbox in there
+            if (File.Exists(fullpath + @"\TimeManageFile1.txt") == false && File.Exists(fullpath + @"\TimeManageFile2.txt") == false)
+            {
+                System.IO.File.Create(fullpath + @"\TimeManageFile1.txt");
+                System.IO.File.Create(fullpath + @"\TimeManageFile2.txt");
+
+                System.IO.File.WriteAllLines(fullpath + @"\TimeManageFile1.txt", boxlist);
+                System.IO.File.WriteAllLines(@fullpath + @"\TimeManageFile2.txt", boxlist2);
             }
-            
-            
-            
-            
-            
-            
+            else{
+                System.IO.File.WriteAllLines(fullpath + @"\TimeManageFile1.txt", boxlist);
+                System.IO.File.WriteAllLines(fullpath + @"\TimeManageFile2.txt", boxlist2);
+            }
+
+
+
+
+
+
         }
-        
+
 
         public void readmethod(object sender, EventArgs e)
         {
             //to readfile
-            using (StreamReader sr = new StreamReader(@"C:\Users\User\Desktop\Networks1\TimeManageFile.txt"))
-            {
+            using (StreamReader sr = new StreamReader(fullpath + @"\TimeManageFile1.txt"))
+            {//read lines into the listbox
                 string line;
-                while((line = sr.ReadLine()) != null)
+                while ((line = sr.ReadLine()) != null)
                 {
                     listboxfortime.Items.Add(line);
 
@@ -230,7 +225,7 @@ namespace TimeManagementApp
 
             }
 
-            using (StreamReader sr = new StreamReader(@"C:\Users\User\Desktop\Networks1\TimeManageFile2.txt"))
+            using (StreamReader sr = new StreamReader(fullpath + @"\TimeManageFile2.txt"))
             {
                 string line2;
                 while ((line2 = sr.ReadLine()) != null)
