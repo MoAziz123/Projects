@@ -29,13 +29,6 @@ with conn: #event loop to receive data
 
 
 
-f = open("website2.txt", "w")
-for i in datalist:
-    f.writelines(i)
-
-
-
-
 
 
 
