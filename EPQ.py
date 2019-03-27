@@ -12,15 +12,16 @@ class Application(tkinter.Frame):
         master.minsize(width="400", height="400")
 
     def widgets(self):
+        #these are the widgets that will be created for the note-taking app
         self.note_title = tkinter.Label(text="Note Title:")
         self.note_title.pack()
-        self.entry = tkinter.Entry(width="40")
+        self.entry = tkinter.Entry(width="40") #entry widget for Title
         self.entry.pack()
-        self.note_text = tkinter.Label(text="Note Text:")
+        self.note_text = tkinter.Label(text="Note Text:") #entry widget for text
         self.note_text.pack()
         self.text = tkinter.Text(width="40", height="10")
 
-
+        //scrollbar and listbox to scroll through a listbox which stores notes
         self.scrollbar = tkinter.Scrollbar(self, orient=tkinter.VERTICAL, )
         self.listbox = tkinter.Listbox(self, height="5", width="20", selectmode="EXTENDED", yscrollcommand=self.scrollbar.set)
         self.scrollbar['command'] = self.listbox.yview()
@@ -32,10 +33,8 @@ class Application(tkinter.Frame):
 
         self.note_title.pack()
         self.text.pack()
-        self.box = tkinter.Button(self, text="Done", fg="black", command=self.store_text2)
+        self.box = tkinter.Button(self, text="Done", fg="black", command=self.store_text2) #these are all buttons which when clicked on, execute their event handler
         self.box.grid(row="40")
-        self.back = tkinter.Button(self, text="Back", fg="black") #calls method for calling Frame2
-        self.back.grid(row="40", column="20")
         self.view_list = tkinter.Button(self, text="View Notes", fg="black", command=self.view_list)
         self.view_list.grid(row="40", column="10")
         self.loadnotes = tkinter.Button(self, text="Load", fg="black", command=self.load_notes)
@@ -63,7 +62,7 @@ class Application(tkinter.Frame):
         self.listbox.bind("<Double-Button-1>", self.click)
 
 
-    def click(self, event):
+    def click(self, event): #on click, removes entry and text, so it can be easier for user, rather than having to remove
         self.entry.delete(0, tkinter.END)
         self.text.delete('1.0', tkinter.END)
         widget = event.widget
