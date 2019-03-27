@@ -10,6 +10,7 @@ class App(tk.Frame):
 
 
     def widgets(self):
+        #buttons for events
         self.title = tk.Label(text="Database")
         self.title.grid(row = 0, column=5)
         self.viewentry = tk.Entry(width=5)
@@ -61,7 +62,7 @@ class App(tk.Frame):
 
 
 
-    def lock(self):
+    def lock(self): #for each in self entries, set their state to read dsabled
         b = 0
         for i in self.entries:
             if b == self.columnsize * self.rowsize:
@@ -75,9 +76,9 @@ class App(tk.Frame):
         else:
             self.savebutton.config(command=self.lock)
 
-        for i in self.titles:
+        for i in self.titles: #disable titles too
             i.config(state='disabled')
-
+#reason for above is to allow users to control changes and such - if i don't want to make any changes, use this
 
 
     def unlock(self):
