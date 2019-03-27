@@ -23,9 +23,9 @@ namespace ConsoleApp2
                     {
                         a++;
 
-                    }
+                    }//get all the primes
                 }
-        if (a == 2)
+        if (a == 2)//if a = 2, then it has only 2 divisors, then i want you to return a
         {
         return n;
         }
@@ -38,7 +38,7 @@ namespace ConsoleApp2
         static void Main()
         {
             List<int> goldbachlist = new List<int>();
-            for (int i=1; i < 30; i++)
+            for (int i=1; i < 30; i++) //get the primes for each number, except 2
             {
                 
                 goldbachlist.Add(Goldbach_Conjecture(i));
@@ -48,13 +48,13 @@ namespace ConsoleApp2
             foreach(int i in goldbachlist)
             {
 
-                System.Console.WriteLine(i);
+                System.Console.WriteLine(i); //write this to console, so that i can see output
                 
 
             }
 
             List<int> twice = new List<int>();
-            for(int i = 0; i < goldbachlist.Count()-1; i++)
+            for(int i = 0; i < goldbachlist.Count()-1; i++) //ad it to the twice list, because it is where we will add the primes up, to see if they are even
             {
                 int k = i;
                 int m = i + 1;
@@ -68,7 +68,7 @@ namespace ConsoleApp2
             
             foreach (int i in twice)
             {
-                if (i % 2 == 0){
+                if (i % 2 == 0){ //this gets the even numbers in twice, thus completeing goldbach
 
                     System.Console.WriteLine(i);
                 }
