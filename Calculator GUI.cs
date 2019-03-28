@@ -226,7 +226,7 @@ namespace WindowsFormsApp2
         public void multiClick(object sender, EventArgs e)
         {
             int input = Convert.ToInt32(input1.Text);
-            storagecontainer.Add(input); //btn text was the true savior
+            storagecontainer.Add(input); 
             Button btn = sender as Button;
             input1.Text = "";
             input1.Text += btn.Text;
@@ -240,7 +240,7 @@ namespace WindowsFormsApp2
         public void divClick(object sender, EventArgs e)
         {
             int input = Convert.ToInt32(input1.Text);
-            storagecontainer.Add(input); //btn text was the true savior
+            storagecontainer.Add(input); 
             Button btn = sender as Button;
             input1.Text = "";
             input1.Text += btn.Text;
