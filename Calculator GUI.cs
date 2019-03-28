@@ -138,13 +138,12 @@ namespace WindowsFormsApp2
             Button btn = sender as Button;
             input1.Text += btn.Text;
             input += btn.Text;
-             //btn text was the true savior
 
 
 
 
 
-            //next to do is the operational thingyyy
+
 
 
 
@@ -163,10 +162,10 @@ namespace WindowsFormsApp2
         {
             input1.Text = input1.Text.Substring(1);
             int input = Convert.ToInt32(input1.Text);
-            storagecontainer.Add(input); //btn text was the true savior
+            storagecontainer.Add(input); 
             int op1 = storagecontainer[0];
             int op2 = storagecontainer[1];
-                if (operatorlst[0] == "+")
+                if (operatorlst[0] == "+") //the way that it takes the input, is through using an array, with split strings rather like expression parsers for strings
                 {
                     input1.Text = (op1 + op2).ToString();
                 }
@@ -195,10 +194,10 @@ namespace WindowsFormsApp2
 
             }
 
-        public void plusClick(object sender, EventArgs e)
+        public void plusClick(object sender, EventArgs e) //below are all the bits for when you click on an opeartional button
         {
             int input = Convert.ToInt32(input1.Text);
-            storagecontainer.Add(input); //btn text was the true savior
+            storagecontainer.Add(input); //storage container is used for adding input to parse
             Button btn = sender as Button;
             input1.Text = "";
             input1.Text += btn.Text;
@@ -212,7 +211,7 @@ namespace WindowsFormsApp2
         public void minusClick(object sender, EventArgs e)
         {
             int input = Convert.ToInt32(input1.Text);
-            storagecontainer.Add(input); //btn text was the true savior
+            storagecontainer.Add(input); 
             Button btn = sender as Button;
             input1.Text = "";
             input1.Text += btn.Text;
@@ -289,35 +288,3 @@ namespace WindowsFormsApp2
         }
     }
 }
-/*
-    List<int> storage = new List<int>();
-
-            foreach (char i in input1.Text) {
-                switch (i)
-                {
-                    case '+':
-                        var a = int.Parse(input1.Text.Substring(0, input1.Text.IndexOf('+')));
-                        var b = int.Parse(input1.Text.Substring(input1.Text.IndexOf('+'), input1.Text.Length-1));
-                        var g = a + b;
-                        input1.Text = g.ToString();
-
-                        break;
-                    case '-':
-                        var c = int.Parse(input1.Text.Substring(0, input1.Text.IndexOf('-')));
-                        var d = int.Parse(input1.Text.Substring(input1.Text.IndexOf('-'), input1.Text.Length-1));
-                        var z = c-d;
-                        input1.Text = z.ToString();
-                        break;
-                    case '*':
-                        var u = Convert.ToInt32(input1.Text.Substring(0, input1.Text.IndexOf('*', 0)));
-                        var n = Convert.ToInt32(input1.Text.Substring(input1.Text.IndexOf('*',0), input1.Text.Length-1));
-                        var p = u * n;
-                        input1.Text = p.ToString();
-                        break;
-                    case '/':
-                        var r = int.Parse(input1.Text.Substring(0, input1.Text.IndexOf('/')));
-                        var o = int.Parse(input1.Text.Substring(input1.Text.IndexOf('/'), input1.Text.Length-1));
-                        var w = r / o;
-                        input1.Text = w.ToString();
-                        break;
-                    */
