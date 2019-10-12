@@ -1,0 +1,13 @@
+C:\Users\Lenovo\source\repos\DebugClient\DebugClient\bin\Debug\DebugClient.exe.config
+C:\Users\Lenovo\source\repos\DebugClient\DebugClient\bin\Debug\DebugClient.exe
+C:\Users\Lenovo\source\repos\DebugClient\DebugClient\bin\Debug\DebugClient.pdb
+C:\Users\Lenovo\source\repos\DebugClient\DebugClient\obj\Debug\DebugClient.csprojAssemblyReference.cache
+C:\Users\Lenovo\source\repos\DebugClient\DebugClient\obj\Debug\DebugClient.Form1.resources
+C:\Users\Lenovo\source\repos\DebugClient\DebugClient\obj\Debug\DebugClient.Properties.Resources.resources
+C:\Users\Lenovo\source\repos\DebugClient\DebugClient\obj\Debug\DebugClient.csproj.GenerateResource.cache
+C:\Users\Lenovo\source\repos\DebugClient\DebugClient\obj\Debug\DebugClient.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\DebugClient\DebugClient\obj\Debug\DebugClient.csproj.CopyComplete
+C:\Users\Lenovo\source\repos\DebugClient\DebugClient\obj\Debug\DebugClient.exe
+C:\Users\Lenovo\source\repos\DebugClient\DebugClient\obj\Debug\DebugClient.pdb
+C:\Users\Lenovo\source\repos\DebugClient\DebugClient\bin\Debug\DebugLog2.0.dll
+C:\Users\Lenovo\source\repos\DebugClient\DebugClient\bin\Debug\DebugLog2.0.pdb

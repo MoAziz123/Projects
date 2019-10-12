@@ -1,0 +1,11 @@
+FileHandleException:wasn't able to process files because of null exception
+FileHandleException:wasn't able to process files because of null exception
+FileHandleException:wasn't able to process files because of null exception
+FileHandleException:wasn't able to process files because of null exception
+FileHandleException:wasn't able to process files because of null exception
+FileHandleException:wasn't able to process files because of null exception
+FileHandleException:wasn't able to process files because of null exception
+FileHandleException:wasn't able to process files because of null exception
+Index:substring length out of bounds - fix by taking away the first substring length from the second parameter
+FileHandleException:wasn't able to process files because of null exception
+Index:substring length out of bounds - fix by taking away the first substring length from the second parameter
