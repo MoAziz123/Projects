@@ -1,0 +1,121 @@
+﻿@using System.Data.SqlClient;
+
+
+@{
+    if (IsPost)
+    {
+
+        var name = Request.Form["name"];
+        var age = Request.Form["age"];
+        var choice = Request.Form["choice"];
+        var choice2 = Request.Form["choice2"];
+        SqlConnection conn = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;");
+        conn.Open();
+        string query = string.Format("INSERT INTO userdata (name, age, fooditem1, fooditem2) VALUES ('{0}', '{1}', '{2}', '{3}')", name, age, choice, choice2);
+        SqlCommand cmd = new SqlCommand(query, conn);
+        cmd.ExecuteNonQuery();
+        conn.Close();
+      
+
+
+
+    }
+
+
+    }
+
+
+}
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="~/website.css" />
+<head>
+    <meta charset="utf-8" />
+    <title>Form</title>
+
+</head>
+<body>
+    <form method="post">
+        <p></p>
+        <fieldset class="borderbox">
+            <h1>Form</h1>
+            <p>Name:</p>
+            <input type="text" name="name" /> <br /><br />
+            <p>Age</p>
+
+            <input type="text" name="age" /> <br /> <br />
+            <p>Food Item 1:</p>
+            <br />
+            <input type="radio" name="choice" value="Fish" /> <text>Fish </text><br />
+            <input type="radio" name="choice" value="Beans" /> <text>Beans</text><br />
+            <input type="radio" name="choice" value="Pasta" /> <text>Pasta</text><br />
+            <br /> <br />
+            <p>Food Item 2:</p><br />
+            <input type="radio" name="choice2" value="Rice Pudding" /> <text>Rice Pudding</text><br />
+            <input type="radio" name="choice2" value="Cake" /> <text>Cake</text><br />
+            <input type="radio" name="choice2" value="Mackarel" /> <text>Mackarel</text><br /> <br />
+            <input id="submit" type="submit" name="submit" value="Submit" />
+
+
+
+        </fieldset>
+        <fieldset id="tableo" class="borderbox">
+        <table cellpadding="10px;">
+            <tr>
+                <td>
+                    <strong>Name</strong>
+                </td>
+                <td>
+                    <strong>Age</strong>
+                </td>
+                <td>
+                    <strong>1:</strong>
+                </td>
+                <td>
+                    <strong>2:</strong>
+                </td>
+
+
+            </tr>
+            @{ 
+                
+                    SqlConnection conn1 = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;");
+                    conn1.Open();
+                    SqlCommand reading = new SqlCommand("SELECT * FROM userdata;", conn1);
+                    SqlDataReader reader = reading.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        
+            <tr>
+                <td >
+                    @reader[0]
+                </td>
+                <td>
+                    @reader[1]
+                </td>
+                <td >
+                    @reader[2]
+                </td>
+                <td>
+                    @reader[3]
+                </td>
+            </tr>
+
+
+
+
+
+
+
+                        }
+                        reader.Close();
+
+                    }
+
+
+                
+        </table>
+        </fieldset>
+    </form>
+</body>
+</html>

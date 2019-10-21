@@ -1,0 +1,213 @@
+.borderbox{
+    background-color: floralwhite;
+    height:auto;
+    width:250px;
+    position:relative;
+    left: 525px;
+    top: 75px;
+    border: 2px solid forestgreen;
+    opacity: 0.88;
+    box-shadow: rgba(34, 139, 34, 0.4) 2px 2px;
+    
+    
+    
+
+
+
+
+
+}
+
+.borderbox h1{
+    text-align:center;
+    font-family: 'Trebuchet MS';
+    border-bottom:1px solid forestgreen;
+    
+    
+
+}
+.borderbox p{
+    position:relative;
+    bottom:10px;
+    font-family: 'Trebuchet MS';
+    
+
+
+
+}
+.borderbox .logo{
+
+    left:150px;
+}
+
+.borderbox input{
+    position:relative;
+    bottom: 20px;
+    left: 20px;
+    color: black;
+    border: 1px solid forestgreen;
+    font-family: 'Trebuchet MS';
+
+}
+#submit {
+    left: 75px;
+    border: 1px solid forestgreen;
+    background-color: floralwhite;
+    font-family: 'Trebuchet MS';
+    font-size: 15px;
+    top:8px;
+    height: 50px;
+    width: 75px;
+    transition: background-color 500ms, color 500ms;
+    opacity: 1.0;
+}
+
+#submit:hover{
+    background-color: forestgreen;
+    color: floralwhite;
+    cursor:pointer;
+
+
+}
+
+
+.borderbox text{
+    position:relative;
+    font-family:'Trebuchet MS';
+    bottom: 20px;
+    left: 20px;
+
+
+
+}
+
+
+body{
+    margin:0px;
+    background-image:url(imageforbackground.jpg);
+    background-size:cover;
+    
+    
+    
+    
+}
+#main{
+    height:400px;
+
+
+}
+#edit{
+    position:relative;
+    left:250px;
+
+
+}
+
+#editdel{
+    position:relative;
+    left: 700px;
+    top: -430px;
+}
+
+table{
+    grid-template-columns: 10px 10px;
+    grid-template-rows: auto auto;
+
+
+}
+#names{
+    left:0px;
+    top:0px;
+
+
+}
+
+#delname{
+
+    position:relative;
+    bottom:70px;
+    right:10px;
+
+}
+#delna{
+
+
+    position:relative;
+    bottom:50px;
+}
+#submit1 {
+    position:relative;
+    left: 0px;
+    border: 1px solid forestgreen;
+    background-color: floralwhite;
+    font-family: 'Trebuchet MS';
+    font-size: 15px;
+    bottom:18px;
+    height: 50px;
+    width: 75px;
+    transition: background-color 500ms, color 500ms;
+    opacity: 1.0;
+}
+
+    #submit1:hover {
+        background-color: forestgreen;
+        color: floralwhite;
+        cursor: pointer;
+    }
+
+#delrow {
+    position: relative;
+    top:-400px;
+    left:700px;
+
+}
+#tableo {
+    position: absolute;
+    top: 75px;
+    left: 250px;
+    grid-template-rows: 5px 5px;
+    grid-template-columns:5px 5px;
+    display:grid;
+}
+
+    #tableo tr{
+        padding:5px;
+        border:1px solid forestgreen;
+
+
+
+
+    }
+
+    #tableo td{
+        border:1px solid forestgreen;
+        
+
+
+
+
+    }
+
+#submit2 {
+    position: relative;
+    left: 19px;
+    top:-20px;
+    border: 1px solid forestgreen;
+    background-color: floralwhite;
+    font-family: 'Trebuchet MS';
+    font-size: 15px;
+    bottom: 18px;
+    transition: background-color 500ms, color 500ms;
+    opacity: 1.0;
+}
+    #submit2:hover {
+        background-color: forestgreen;
+        color: floralwhite;
+        cursor: pointer;
+    }
+#row1{
+    bottom:20px;
+
+
+
+}

@@ -1,0 +1,38 @@
+﻿@using System.Data.SqlClient;
+@using System.Threading;
+
+@{ if(IsPost)
+    {
+        var name = Request.Form["user"];
+        var pass = Request.Form["pass"];
+        SqlConnection conn = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;");
+        conn.Open();
+        string query = string.Format("INSERT INTO pass_storage (username, pass) VALUES ('{0}', '{1}')", name, pass);
+         SqlCommand cmd = new SqlCommand(query , conn);
+        cmd.ExecuteNonQuery();
+        Response.Redirect("~/Default.cshtml");
+    }
+
+
+}
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="~/website.css" />
+<head>
+    <meta charset="utf-8" />
+    <title>Create Account</title>
+    <form method="post">
+        <fieldset class="borderbox">
+            <h1>Create Account</h1>
+            <p>Username</p>
+            <input type="text" name="user" /> <br /> <br />
+            <p>Password:</p>
+            <input type="password" name="pass" /> <br /> <br />
+            <input id="submit"type="submit" name="submit" value="Create" />
+        </fieldset>
+    </form>
+</head>
+<body>
+
+</body>
+</html>

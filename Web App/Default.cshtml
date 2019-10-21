@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+@using System.Data.SqlClient;
+@{ 
+    if(IsPost)
+    {
+        //delete row functionality
+        //change betweem tables in admin
+
+        string name = Request.Form["user"];
+        string pass = Request.Form["pass"];
+        
+
+        //if is correct, then load the site data, if not, then load redirect page
+        SqlConnection conn = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;");
+        conn.Open();
+        SqlCommand reading = new SqlCommand("SELECT * FROM pass_storage;", conn);
+        SqlDataReader reader = reading.ExecuteReader();
+        while (reader.Read())
+        {
+            if (name == (string)reader[0] && pass == (string)reader[1] && (int)1 == (int)reader[2])
+            {
+
+                Response.Redirect("Admin.cshtml");
+            }
+            if (name == (string)reader[0] && pass == (string)reader[1])
+            {
+
+                Response.Redirect("~/HtmlPage2.cshtml"); //data page
+                
+
+            }
+
+
+
+
+
+        }
+        reader.Close();
+        Response.Redirect("~/HtmlPage.cshtml");
+
+
+
+
+
+    }
+}
+<html style="min-width:1300px;">
+    <link rel="stylesheet" type="text/css" href="website.css">
+<head>
+    <title>Log In</title>
+</head>
+
+<body >
+    
+    <form method="post">
+        <fieldset id="main"class="borderbox">
+            <img class="logo" src="IC LOGO.png" />
+            <!--for displaying info for user-->
+            <p>Username/Email:</p><br />
+            <input class="user" type="text" name="user" value="" /> <!--for user input--> <br />
+            <p>Password: </p><br />
+            <input class="pass" type="password" name="pass" value="" /><br />
+            <input id="submit" type="submit" name="Log In" value="Log In" />
+            
+        </fieldset>
+    </form>
+    
+</body>
+
+<footer>
+
+
+</footer>
+
+
+

@@ -1,0 +1,155 @@
+﻿@using System.Data.SqlClient;
+
+@{
+    //do each function in a form, so that you can tehn submit to the handler
+    //delete values
+    //e.t.c.
+
+    if (IsPost)
+    {
+
+        SqlConnection conn = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;");
+        conn.Open();
+        string query1 = Request.Form["submit"];
+        if (query1 == "ADD")
+        {
+            string col = Request.Form["colname"];
+            string data = Request.Form["data"];
+            string data1 = data.Replace(",", "");
+            SqlCommand cmd = new SqlCommand(string.Format("ALTER TABLE pass_storage ADD {0} {1};", col, data1), conn);
+            cmd.ExecuteNonQuery();
+
+
+        }
+
+        if (query1 == "DELETE")
+        {
+            SqlCommand cmd = new SqlCommand(string.Format("ALTER TABLE pass_storage DROP COLUMN {0};".Replace(",", ""), Request.Form["colname"]), conn);
+            cmd.ExecuteNonQuery();
+
+
+        }
+
+        if (query1 == "DELETEROW")
+        {
+            SqlCommand cmd = new SqlCommand(string.Format("DELETE FROM pass_storage WHERE username = '{0}'", Request.Form["rowname"]), conn);
+            cmd.ExecuteNonQuery();
+
+
+
+        }
+
+
+
+
+
+
+
+    }
+
+
+}
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="~/website.css" />
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form method="post">
+        <fieldset id="edit"class="borderbox">
+            <h1>Add Column</h1> <br /> <br />
+            <p>Name:</p>
+            <input type="text" name="colname" /> <br /> <br />
+            <p>Datatype:</p><br />
+            <input type="radio" name="data" value="VARCHAR(50)" /> <text>Text</text><br />
+            <input type="radio" name="data" value="INT" /> <text>Number</text> <br />
+            <input type="radio" name="data" value="DATETIME" /> <text>Date/Time</text><br /> <br />
+            <p>DefaultValue</p>
+            <input type="text" name="data" value="" /> <br /><br />
+            <button id="submit" type="submit" name="submit" value="ADD">Submit</button>
+
+        </fieldset>
+    </form>
+    <form method="post">
+        <fieldset id="editdel" class="borderbox">
+            <h1>Delete Column</h1> <br /> <br />
+
+            <p id="delna">Name</p>
+            <div id="delcol">
+                <input id="delname" type="text" name="colname" />
+                <button id="submit1" type="submit" name="submit" value="DELETE">Submit</button>
+            </div>
+            <table id="names" class="borderbox" cellpadding="5px">
+                <tr>
+                    <td>
+                        <strong>Column Name:</strong>
+                    </td>
+                </tr>
+
+                @{
+
+                    SqlConnection conn1 = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;");
+                    conn1.Open();
+                    SqlCommand reading = new SqlCommand("SELECT COLUMN_NAME, * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'pass_storage'", conn1);
+                    SqlDataReader reader = reading.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        <tr>
+                            <td axis="Name " width="20%" height="5px">
+                                @reader[0]
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+
+        </fieldset>
+
+    
+
+    </form>
+    <form method="post">
+        <fieldset id="delrow" class="borderbox">
+            <h1>Delete Row</h1>
+            <p>Name of Row</p>
+            <input id="row1"type="text" name="rowname" />
+            <button id="submit2" type="submit" name="submit" value="DELETEROW">Submit</button>
+            <table class="borderbox" style="left:0px; top:0px;">
+                <tr>
+                    <td>
+                        <strong>Name of Row:</strong>
+                    </td>
+                </tr>
+            @{
+
+                SqlConnection conn2 = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;");
+                conn2.Open();
+                SqlCommand reading2 = new SqlCommand("SELECT * FROM pass_storage;", conn2);
+                SqlDataReader reader2 = reading2.ExecuteReader();
+                while (reader2.Read())
+                {
+                        <tr>
+                            <td>
+                                @reader2[0]
+                            </td>
+                        </tr>
+                }
+
+            }
+            </table>
+
+
+
+
+        </fieldset>
+
+
+    </form>
+
+   
+            
+        
+</body>
+</html>

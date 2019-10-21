@@ -1,0 +1,75 @@
+﻿@using System.Data.SqlClient;
+@using System.Collections;
+@{
+    if (IsPost)
+    {
+        string privilege = Request.Form["Admin"];
+        SqlConnection conn = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;");
+        conn.Open();
+        SqlCommand reading1 = new SqlCommand("SELECT * FROM pass_storage;", conn);
+        SqlDataReader reader1 = reading1.ExecuteReader();
+        while (reader1.Read())
+        {
+            if (privilege == (string)reader1[0])
+            {
+                Console.WriteLine(privilege + (string)reader1[0]);
+
+
+            }
+
+
+
+        }
+        reader1.Close();
+        SqlCommand insert = new SqlCommand(string.Format("UPDATE pass_storage SET admin = 1 WHERE username = '{0}'", privilege), conn);
+        insert.ExecuteNonQuery();
+
+    }
+
+
+}
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="~/website.css" />
+<body>
+    <meta charset="utf-8" />
+    <title>Controls</title>
+    <form method="post">
+        <fieldset class="borderbox
+
+            <h2>Controls</h2>
+            <a href="~/Edit%20Form.cshtml"><button>Edit Form</button></a>
+
+            <br /> <br />
+            <p>Give Admin:</p>
+            <input type="text" name="Admin" value="" />
+            <input style="background-color:floralwhite;" type="submit" name="submit" value="submit" />
+            @{
+
+                SqlConnection conn1 = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;");
+                conn1.Open();
+                SqlCommand reading = new SqlCommand("SELECT * FROM pass_storage;", conn1);
+                SqlDataReader reader = reading.ExecuteReader();
+                while (reader.Read())
+                {
+                    <table id="names" class=borderbox ="1" cellpadding="5px">
+                        <tr>
+                            <td axis="Name " width="20%" height="5px">
+                                @reader[0]
+                            </td>
+                            <td>
+                                @reader[2]
+
+                            </td>
+                    </table>
+                }
+            }
+
+
+        </fieldset>
+    </form>
+</body>
+
+
+
+</html>
