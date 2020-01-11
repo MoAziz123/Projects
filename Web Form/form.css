@@ -1,0 +1,184 @@
+body{
+    background-image: url(23547-colorful-high-resolution-background.jpg);
+    margin:0px;
+    
+}
+.form{
+    background-color: white;
+    width:400px;
+    top:65px;
+    position:absolute;
+    margin:0px 200px 0 200px;
+    left:325px;
+    overflow: hidden;
+
+    
+    
+}
+.form text{
+    position:relative;
+    left:200px;
+
+}
+@media only screen and (max-width: 750px){
+    .form{
+        left:0px;
+    }
+}
+
+.form label{
+    
+    position:relative;
+    left:40px;
+    font-size:18px;
+}
+.form h1{
+    font-family:Calibri;
+    position:relative;
+    border-bottom: 2px solid forestgreen;
+    left: 20px;
+    
+    
+}
+.form{
+    font-family:Calibri;
+    
+}
+.form #name{
+    left:50px;
+    margin-bottom:10px;
+    border:none;
+    position:relative;
+    border-style:none;
+    border-bottom: 0.5px solid;
+    border-bottom-color: forestgreen;
+    background-color:transparent;
+    transition: border-bottom 500ms;
+}
+
+.form #age{
+    left:62px;
+    margin-bottom:10px;
+    border:none;
+    position:relative;
+    border-style:none;
+    border-bottom: 0.5px solid;
+    border-bottom-color: forestgreen;
+    background-color:transparent;
+    transition: border-bottom 500ms;
+
+}
+
+.form #email{
+    left:50px;
+    margin-bottom:10px;
+    border:none;
+    position:relative;
+    border-style:none;
+    border-bottom: 0.5px solid;
+    border-bottom-color: forestgreen;
+    background-color:transparent;
+    transition: border-bottom 500ms;
+
+}
+.form #gender{
+    position:relative;
+    bottom:18px;
+    left:20px;
+        margin-bottom:20px;
+
+    
+}
+#gendertext{
+    position:relative;
+    left: 19px;
+    font-size:18px;
+    
+}
+.form #gender input[type=radio]{
+    position:relative;
+    left:90px;
+    bottom:31px;
+    color:forestgreen;
+    
+    
+}
+.form #gender text{
+    position:relative;
+    left: 100px;
+    bottom: 32px;
+    
+    
+}
+.form #name:focus{
+    transition: border-bottom 500ms;
+    border-bottom: 2px solid forestgreen;
+    
+    
+    
+}
+.form #age:focus
+{
+    transition: border-bottom 500ms;
+    border-bottom: 2px solid forestgreen;
+    
+    
+}
+.form #email:focus
+{
+    transition: border-bottom 500ms;
+    border-bottom: 2px solid forestgreen;
+    
+    
+}
+
+.form #region{
+    position:relative;
+    left:35px;
+    bottom:60px;
+    
+}
+#region p{
+    font-size:18px;
+    position:relative;
+    left:2px;
+    
+    
+}
+#dropdown{
+    position:relative;
+    left:60px;
+    color: black;
+    border: 1px solid forestgreen;
+    transition: border 500ms;
+    bottom:38px;
+    width:175px;
+    margin-bottom:20px;
+
+
+}
+#dropdown:focus{
+    border: 2px solid forestgreen;
+    transition: border 500ms;
+}
+.form #submit{
+    border: 1px solid forestgreen;
+    position:relative;
+    bottom:65px;
+    left: 130px;
+    height:50px;
+    width: 90px;
+    font-size: 100%;
+    background-color:white;
+    transition: color 500ms, background-color 500ms;
+    
+    
+    
+    
+}
+.form #submit:hover{
+    transition: background-color 500ms;
+    background-color:forestgreen;
+    color:white;
+    cursor:pointer;
+}

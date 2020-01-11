@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html style="margin: 0;"></html>
+<link rel="stylesheet" href="form.css">
+<body>
+<title>Web Form</title>
+<form class="form" action="form_verify.php" method="post" target="_blank">
+    <h1 >Web Form</h1>
+    <label for="name">Name: </label>
+    <input id="name" type="text" name="name">
+    <br>
+    <text id="validatename"></text>
+    <br>
+    <label for="age">Age: </label>
+    <input id="age" type="text" name="age" >
+    <br>
+    <text  id="validateage"></text>
+    <br>
+    <label for="email">Email: </label>
+    <input id="email" type="email" name="email">
+    <br>
+    <text  id="validateemail"></text>
+    <br>
+    <div id="gender">
+    <p id="gendertext">Gender: </p>
+    <input type="radio" name="gender" value="Male"><text>Male</text><br>
+    <input type="radio" name="gender" value="Female"><text>Female</text><br>
+    <input type="radio" name="gender" value="Other"><text>Other</text><br>
+    </div>
+    <div id="region">
+    <p>Region: </p>
+    <select id="dropdown" name="region">
+        <option>England </option>
+        <option>Wales</option>
+        <option>Scotland</option>
+        <option>Northern Ireland</option>
+    </select>
+    </div>
+    <input id="submit" type="submit" name="Submit" value="Submit">
+    </form>
+<script src="form.js"></script>
+<!--- always put JS after the elements it affects are loaded--->
+</body>
