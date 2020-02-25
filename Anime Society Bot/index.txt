@@ -1,0 +1,2 @@
+Bot for AnimeSociety, created using discord.py along with BeautifulSoup4 and requestsAPI for parsing HTML documents
+This version has token removed, due to security issues
