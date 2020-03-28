@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/Controller/RegisterController.php</file>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/Controller/DownloadController.php</file>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/View/LoggedInView.php</file>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/View/RegisterView.php</file>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/LoggedIn.php</file>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/Model/DatabaseConnection.php</file>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/Model/Validate.php</file>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/View/DownloadView.php</file>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/Controller/LogInController.php</file>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/LogIn.php</file>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/Controller/LoggedInController.php</file>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/Model/FTPConnection.php</file>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/Register.php</file>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/index.php</file>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/Controller/IndexController.php</file>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/View/LogInView.php</file>
+            <file>file:/C:/xampp/htdocs/MVCLogInSystem/DownloadFile.php</file>
+        </group>
+    </open-files>
+</project-private>
